@@ -1,16 +1,11 @@
-import {Routes, Route} from "react-router-dom"
-import MainPage from"./Pages/MainPage"
-import Register from "./Pages/Register"
+import { Navigate } from "react-router-dom";
+import RouterAuthNo from "./Router/RouterAuthNo";
+import RouterAuthYes from "./Router/RouterAuthYes";
+import isAuth from "./hook/isAuth";
+
 
 export default function App() {
-  return (
-    <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/profileuser" element={<p>Привт</p>} />
-        <Route path="/profileevent" element={<p>Привт</p>} />
-        <Route path="/allevents" element={<p>Привт</p>} />
-        <Route path="/register" element={<Register />} />
-    </Routes>
-  
-  )
+  if(isAuth() == true) return(<RouterAuthYes />)
+  else if(isAuth() == false) return (<RouterAuthNo />)
+  else return(<Navigate to="/" />)
 }

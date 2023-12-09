@@ -1,15 +1,12 @@
+import { useEffect, useState } from "react";
 import { Navigate, Route, Router } from "react-router-dom";
 
 export default function isAuth(){
-    const [isAuth,setAuth] = useState();
-    setAuth(localStorage.getItem("isAuth"));
-    if(isAuth === "true") return(
-        <Route>
-
-        </Route>
-    ); else return(
-        <Route>
-            
-        </Route>
-    )
+    const [auth,setauth] = useState();
+      useEffect(()=>{
+        setauth(localStorage.getItem("isAuth"));
+      },[])
+      if(auth === "true") return true
+      else if(auth === "false") return false
+      else localStorage.setItem("isAuth", false);
 }

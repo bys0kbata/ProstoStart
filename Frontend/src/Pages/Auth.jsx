@@ -5,6 +5,8 @@ export default function Auth(){
             <form>
                 <input text="text" placeholder="Введите логин:" />
                 <input text="text" placeholder="Введите пароль:" />
+                <p>Нет аккаунта?<a href="/register">Создай его!</a></p>
+                <button>Войти</button>
             </form>
         </div>
     )
