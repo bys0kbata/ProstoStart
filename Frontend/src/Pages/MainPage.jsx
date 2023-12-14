@@ -3,8 +3,10 @@ import isAuth from "../hook/isAuth";
 
 export default function MainPage(){
     const nav = useNavigate();
+    const auth = isAuth();
+    console.log(auth);
     const btnCklick=()=>{
-    if(isAuth()) return(nav("/allstarts"))
+    if(auth) return(nav("/allstarts"))
     else return(nav("/auth"))
 
 }

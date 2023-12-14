@@ -18,7 +18,7 @@ export default function Headers(){
     return(
     <>
         <a>
-            <colorblue>PS.c</colorblue>om
+            PS.com
         </a>
         <div>
             <img />
