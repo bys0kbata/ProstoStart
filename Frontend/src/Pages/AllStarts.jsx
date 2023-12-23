@@ -1,7 +1,30 @@
+import "./css/AllStarts.css"
+
 export default function AllStarts(){
+    
+    
+    const OneStart=(props)=>{
+        return(
+            <div className="OneStart">
+                <h1>{props.name}</h1>
+            </div>
+        )
+    }
+    const ArrayStart = ()=>{
+        return(
+            <div className="ArrayStart">
+                <OneStart name="Cтарт" />
+            </div>
+        )
+    }
+    
+    
+    
     return(
-        <>
-            <h1>Все Старты</h1>
-        </>
+        <div>
+            <h1 className="AllLogo">Все Старты</h1>
+            <ArrayStart />
+        
+        </div>
     )
 }
