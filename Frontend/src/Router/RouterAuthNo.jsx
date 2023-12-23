@@ -1,16 +1,14 @@
 import { Route, Routes } from "react-router-dom";
-import MainPage from "../Pages/MainPage";
-import Register from "../Pages/Register";
-import Auth from "../Pages/Auth";
-import NotFound from "../Pages/NotFound";
+import MainPage from "../Pages/MainPage.jsx";
+import Register from "../Pages/Register.jsx";
+import Auth from "../Pages/Auth.jsx";
+import NotFound from "../Pages/NotFound.jsx";
 
 export default function RouterAuthNo(){
     return(
     <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<NotFound />} />
+
+        <Route path="/registrator" element={<Register />} />
     </Routes>
     )
 }

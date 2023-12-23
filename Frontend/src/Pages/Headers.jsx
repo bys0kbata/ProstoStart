@@ -1,12 +1,21 @@
 import "./css/Headers.css"
 import isAuth from "../hook/isAuth"
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 export default function Headers(){
+    const nav = useNavigate();
     const [nickUser, setNick]= useState('');
     useEffect(()=>{
         setNick(localStorage.getItem("Nick"))
     },[])
+    const onBut = ()=>{
+        localStorage.clear();
+        localStorage.setItem("isAuth", "false");
+        nav("/");
+        location.reload();
+
+    }
     const LogoHead = ()=>{
         return(
             <p className="LogoHead">
@@ -18,7 +27,7 @@ export default function Headers(){
         if(isAuth()== true)return(
             <div className="btnLogo">
                 <a>{nickUser}</a>
-                <button>Выйти</button>
+                <button onClick={()=>{onBut()}}>Выйти</button>
             </div>
 
         ); 
@@ -31,6 +40,7 @@ export default function Headers(){
     return(
     <div className="Headers">
         <LogoHead />
+
         <div>
             <img />
             <LogoAvatar />   
