@@ -1,6 +1,8 @@
 import { Axios } from "axios";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "./css/Auth.css"
+import img from "./img/ImgMainTwo.png";
 
 
 export default function Auth(){
@@ -20,14 +22,21 @@ export default function Auth(){
     }
 
     return(
-        <div>
-            <h1>Авторизация</h1>
-            <form>
-                <input type="text" placeholder="Введите логин:" onChange={(e)=>{setLogin(e.target.value)}} />
-                <input type="text" placeholder="Введите пароль:" onChange={(e)=>{setPass(e.target.value)}} />
-                <p>Нет аккаунта?<a href="/register">Создай его!</a></p>
-                <button onClick={(e)=>{clickAuth(e)}}>Войти</button>
-            </form>
+        <div className="AuthPage">
+            <img src={img} />
+            <div className="FormAuth">
+                <h1>Авторизация</h1>
+                <form>
+                    <div  className="inputss">
+                        <input type="text" placeholder="Введите логин:" onChange={(e)=>{setLogin(e.target.value)}} />
+                    </div>
+                    <div  className="inputss">
+                        <input type="text" placeholder="Введите пароль:" onChange={(e)=>{setPass(e.target.value)}} />
+                    </div>
+                    <p>Нет аккаунта?<a href="/register"> Создай его!</a></p>
+                    <button className="btnAuth" onClick={(e)=>{clickAuth(e)}}>Войти</button>
+                </form>
+            </div>
         </div>
     )
 }

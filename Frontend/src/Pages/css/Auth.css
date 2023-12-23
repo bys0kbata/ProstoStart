@@ -1,0 +1,74 @@
+.AuthPage{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+.FormAuth{
+    margin-left: 5vw;
+}
+
+.FormAuth h1{
+    color: #66FCF1;
+    font-weight: 640;
+    font-size: 6vh;
+    margin:auto;
+}
+.FormAuth form{
+    background-color:#1F2833 ;
+    border-color:  #66FCF1;
+    border-radius: 40px;
+    border-style: solid;
+    border-width: 2px;
+    color: white;
+    padding-right: 3vh;
+    padding-left: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    font-size: 2vh;
+}
+.FormAuth h1{
+    margin:1vh;
+}
+.FormAuth form div{
+    margin:1vh;
+    background-color:black ;
+    border-color:  #66FCF1;
+    border-radius: 40px;
+    border-style: solid;
+    border-width: 2px;
+    width: max-content;
+    height: max-content;
+    padding:2vh
+}
+.FormAuth form div input{
+    background-color: #93EEC2;
+    border-color:  #93EEC2;
+    border-radius: 40px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 1vh;
+    color:white;
+}
+.FormAuth form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:1vh;
+}
+.btnAuth{
+    background-color:black ;
+    border-color:  #66FCF1;
+    border-radius: 40px;
+    border-style: solid;
+    border-width: 2px;
+    color: white;
+    padding-right: 3vh;
+    padding-left: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+.btnAuth:hover{
+    background-color: #66FCF1;
+}

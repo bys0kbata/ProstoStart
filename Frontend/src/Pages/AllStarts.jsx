@@ -7,6 +7,7 @@ export default function AllStarts(){
         return(
             <div className="OneStart">
                 <h1>{props.name}</h1>
+                <button>Подробнее</button>
             </div>
         )
     }
