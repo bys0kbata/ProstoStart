@@ -9,7 +9,7 @@ export default function RouterAuthNo(){
     <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/auth" element={<Auth />} />
-        <Route path="/registrator" element={<Register />} />
+        <Route path="/reg" element={<Register />} />
         <Route path="*" element={<NotFound />} />
     </Routes>
     )

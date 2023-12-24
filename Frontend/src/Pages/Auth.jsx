@@ -33,7 +33,7 @@ export default function Auth(){
                     <div  className="inputss">
                         <input type="text" placeholder="Введите пароль:" onChange={(e)=>{setPass(e.target.value)}} />
                     </div>
-                    <p>Нет аккаунта?<a href="/register"> Создай его!</a></p>
+                    <p>Нет аккаунта?<button className="btnReg" onClick={()=>{nav("/reg");}}> Создай его!</button></p>
                     <button className="btnAuth" onClick={(e)=>{clickAuth(e)}}>Войти</button>
                 </form>
             </div>

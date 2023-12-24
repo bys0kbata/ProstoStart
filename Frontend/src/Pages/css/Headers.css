@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: flex-start;
     justify-content: space-between;
+    height: 4vh;
 }
 .LogoHead{
     color:white;
@@ -11,6 +12,8 @@
     color:#66FCF1;
 }
 .btnLogo{
+    display: flex;
+    align-items: center;
     color:rgb(116, 116, 116);
     background-color:#1F2833 ;
     border-color:  #45A29E;
@@ -18,7 +21,6 @@
     border-style: solid;
     border-width: 2px;
     padding: 1.5vh;
-    width: max-content;
 }
 .btnLogo a {
     background-color:#66FCF1 ;
@@ -28,7 +30,6 @@
     border-width: 2px;
     margin: auto;
     padding: 0.25vh;
-    max-width: max-content;
 }
 .btnLogo button {
     background-color:#66FCF1 ;
@@ -39,7 +40,6 @@
     margin: auto;
     margin-left: 1vh;
     padding: 0.25vh;
-    max-width: max-content;
 }
 .btnLogo button:hover {
     background-color:#1F2833 ;
@@ -50,4 +50,57 @@
     background-color:#1F2833 ;
     border-color:  #45A29E;
     color: white;
+}
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #66FCF1;
+    border-radius: 20px;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+#Menu{
+    background-color:#1F2833;
+    padding:1vh;
+    border-radius:20px;
+    border-color:#45A29E;
+    border-style:solid;
+    border-width:2px;
+    width:3.75vh;
+    margin-top: 0;
+    margin-right: 0.5vh;
+}
+.MLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+#idBtn{
+    align-self: start;
+}
+.listchild{
+    background-color: #66FCF1;
 }
