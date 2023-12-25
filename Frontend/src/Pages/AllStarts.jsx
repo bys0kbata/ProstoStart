@@ -14,16 +14,13 @@ export default function AllStarts(){
         name: "Старт",
         creator: "Макс",
     }]
-     useEffect(()=>{setAS(data);},[]);
-
-
-    
+    useEffect(()=>{setAS(data);},[]);
     const OneStart=(props)=>{
         return(
             <div className="OneStart">
                 <h3> Название: {props.name}</h3>
                 <h4> Руководитель: {props.creater}</h4>
-                <button  onClick={()=>{nav("/profilestart");}}>Подробнее</button>
+                <button className="btnAbout" onClick={()=>{nav("/profilestart");}}>Подробнее</button>
             </div>
         )
     }
