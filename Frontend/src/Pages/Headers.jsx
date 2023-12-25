@@ -46,9 +46,12 @@ export default function Headers(){
     const MenuBottom = ()=>{
         return(
             <div id="myDropdown" className="dropdown-content">
-            <a className="listchild" href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+            <div className="ColumnMenu"> <a className="listchild" href="/profileuser"> Мой профили </a>
+            <a className="listchild" href="/">Главная страница</a>
+            <a className="listchild" href="/allstarts">Все старты</a>
+            <a className="listchild" href="/allcmd">Все команды</a>
+            </div>
+
         </div>
         )
     }

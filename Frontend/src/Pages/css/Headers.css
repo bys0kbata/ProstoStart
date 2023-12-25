@@ -23,13 +23,14 @@
     padding: 1.5vh;
 }
 .btnLogo a {
-    background-color:#66FCF1 ;
+    background-color:black ;
     border-color:  #45A29E;
     border-radius: 10px;
     border-style: solid;
     border-width: 2px;
     margin: auto;
-    padding: 0.25vh;
+    padding: 0.5vh;
+    color: #66FCF1;
 }
 .btnLogo button {
     background-color:#66FCF1 ;
@@ -42,11 +43,6 @@
     padding: 0.25vh;
 }
 .btnLogo button:hover {
-    background-color:#1F2833 ;
-    border-color:  #45A29E;
-    color: white;
-}
-.btnLogo a:hover {
     background-color:#1F2833 ;
     border-color:  #45A29E;
     color: white;
@@ -88,9 +84,10 @@
     border-color:#45A29E;
     border-style:solid;
     border-width:2px;
-    width:3.75vh;
+    width:max-content;
     margin-top: 0;
     margin-right: 0.5vh;
+    z-index: 1;
 }
 .MLogo{
     display: flex;
@@ -101,6 +98,25 @@
 #idBtn{
     align-self: start;
 }
+.dropdown-content{
+    display:flex;
+    flex-direction: row;
+}
+.ColumnMenu{
+    display:flex;
+    flex-direction: column;
+    margin:1vh ;
+}
 .listchild{
-    background-color: #66FCF1;
+    text-decoration: none;
+    color:white;
+    margin:1vh;
+    border-color:#45A29E;
+    border-style:solid;
+    padding: 0.75vh;
+    border-radius: 20px;
+    background-color: black;
+}
+.listchild:hover{
+    background-color: aquamarine;
 }

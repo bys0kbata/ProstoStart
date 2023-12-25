@@ -3,9 +3,10 @@ export default function AllCmd(){
         <>
             <h1>Все команды</h1>
             <table>
-                <td>
-
-                </td>
+                <tr>
+                    <td>ID команды</td>
+                    <td>Название команды</td>
+                </tr>
 
             </table>
         </>

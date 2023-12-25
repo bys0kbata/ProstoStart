@@ -38,9 +38,9 @@
     border-radius: 40px;
     border-style: solid;
     border-width: 2px;
-    width: max-content;
-    height: max-content;
-    padding:2vh
+    width: min-content;
+    height: min-content;
+    padding:2vh;
 }
 .FormAuth form div input{
     background-color: #93EEC2;
@@ -84,4 +84,10 @@
 }
 .btnReg:hover{
     background-color: #66FCF1;
+}
+.imgglazz{
+    height: 25%;
+    width: 25%;
+    background-color: #93EEC2;
+    border-radius: 10px;
 }

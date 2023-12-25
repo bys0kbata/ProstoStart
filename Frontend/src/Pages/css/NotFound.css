@@ -1,0 +1,23 @@
+.NotFound{
+    color: #66FCF1;
+    text-align: center;
+    margin-top:10vh;
+}
+.btnNot{
+    background-color:#1F2833 ;
+    border-color:  #66FCF1;
+    border-radius: 40px;
+    border-style: solid;
+    border-width: 2px;
+    color: white;
+    padding-right: 3vh;
+    padding-left: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+.btnNot:hover{
+    background-color: #66FCF1;
+}
+.img404{
+    font-size: 55px;
+}
