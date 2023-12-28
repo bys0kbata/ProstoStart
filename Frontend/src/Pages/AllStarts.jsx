@@ -17,11 +17,10 @@ export default function AllStarts(){
     useEffect(()=>{setAS(data);},[]);
     const OneStart=(props)=>{
         return(
-            <div className="OneStart">
+            <button className="btnAbout" onClick={()=>{nav("/profilestart");}}> <div className="OneStart">
                 <h3> Название: {props.name}</h3>
                 <h4> Руководитель: {props.creater}</h4>
-                <button className="btnAbout" onClick={()=>{nav("/profilestart");}}>Подробнее</button>
-            </div>
+            </div></button>
         )
     }
     const ArrayStart = ()=>{
