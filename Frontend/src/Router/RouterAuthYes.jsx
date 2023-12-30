@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import ProfileUser from "../Pages/ProfileUser";
 import ProfileStarts from "../Pages/ProfileStarts";
 import AllCmd from "../Pages/AllCmd";
+import AddStart from "../Pages/AddStarts";
 
 
 export default function RouterAuthYes(){
@@ -15,6 +16,7 @@ export default function RouterAuthYes(){
         <Route path="/profilestart" element={<ProfileStarts />} />
         <Route path="/allstarts" element={<AllStarts />} />
         <Route path="/allcmd" element={<AllCmd />} />
+        <Route path="/addstarts" element={<AddStart />} />
         <Route path="*" element={<NotFound />} />
     </Routes>
     )

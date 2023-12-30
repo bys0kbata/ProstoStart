@@ -42,6 +42,7 @@ export default function AllStarts(){
     return(
         <div>
             <h1 className="AllLogo">Все Старты</h1>
+            <button className="btnAbout" onClick={()=>{nav("/addstarts");}}>+</button>
             <ArrayStart />
         </div>
     )
