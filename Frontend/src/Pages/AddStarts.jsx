@@ -19,10 +19,17 @@ export default function AddStart(){
         <div>
             <h1>Добавление Старта</h1>
             <form>
+
+            <div className="inputLogin" >
                 <input type="text" placeholder="Введите название стартапа" onChange={(e)=>{setNS(e.target.value)}}></input>
+            </div>
+            <div className="inputLogin" >
                 <input type="text" placeholder="Введите тематику стартапа" onChange={(e)=>{setCS(e.target.value)}}></input>
+            </div>
+            <div className="inputLogin" >    
                 <input type="text" placeholder="Расскажите о сути стартапа"onChange={(e)=>{setAS(e.target.value)}}></input>
-                <button onClick={()=>{onPost(e)}}>Создать</button>
+            </div>    
+                <button id="btnCrAdd" onClick={()=>{onPost()}}>Создать</button>
             </form>
         </div>
     )
