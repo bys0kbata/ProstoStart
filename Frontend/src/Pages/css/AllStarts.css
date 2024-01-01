@@ -33,7 +33,7 @@
 }
 .btnAbout:hover{
     border-color: #66FCF1;
-    -moz-box-shadow:0 0 10px #66FCF1;
--webkit-box-shadow:0 0 10px #66FCF1;
-box-shadow:0 0 10px #66FCF1;
+    -moz-box-shadow:0 0 30px #66FCF1;
+-webkit-box-shadow:0 0 30px #66FCF1;
+box-shadow:0 0 30px #66FCF1;
 }
