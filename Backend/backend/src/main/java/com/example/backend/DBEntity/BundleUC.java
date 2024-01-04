@@ -1,10 +1,7 @@
 package com.example.backend.DBEntity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,12 +17,15 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class BundleUC implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id_Bundle")
     private int idBundle;
-    @Column(name="id_User")
-    private int idUser;
-    @Column(name="id_Comand")
-    private int idCommand;
+    @ManyToOne
+    @JoinColumn(name="id_User")
+    private User idUser;
+    @ManyToOne
+    @JoinColumn(name="id_Comand")
+    private Command idCommand;
     @Column(name="Status_Bundle")
     private String StatusBundle;
 }

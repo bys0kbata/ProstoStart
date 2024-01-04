@@ -10,10 +10,13 @@ import java.util.List;
 @Service
 public class UserService {
 
-
+    @Autowired
     private UserRepository userRepository;
 
-    public List<User> getAll() {
-        return userRepository.findAll();
+    public void save(User user){
+        userRepository.save(user);
+    }
+    public void auth(String name, String password){
+        userRepository.findByLoginAndPassword(name,password);
     }
 }

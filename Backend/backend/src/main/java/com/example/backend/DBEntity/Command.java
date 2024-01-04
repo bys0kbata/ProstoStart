@@ -1,9 +1,6 @@
 package com.example.backend.DBEntity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +16,7 @@ import java.io.Serializable;
 @Table(name="Command")
 public class Command implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
    @Column(name="id_command")
     private int idComand;
     @Column(name = "name_command")
