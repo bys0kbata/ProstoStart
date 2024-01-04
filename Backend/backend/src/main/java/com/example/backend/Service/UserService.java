@@ -16,7 +16,8 @@ public class UserService {
     public void save(User user){
         userRepository.save(user);
     }
-    public void auth(String name, String password){
-        userRepository.findByLoginAndPassword(name,password);
+    public List<User> auth(String name, String password){
+        List<User> user = userRepository.findByNameAndPassword(name, password);
+        return user;
     }
 }

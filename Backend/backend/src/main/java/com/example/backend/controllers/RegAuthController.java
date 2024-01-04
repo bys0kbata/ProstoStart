@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 @CrossOrigin
@@ -23,8 +22,8 @@ public class RegAuthController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
     @GetMapping("/auth")
-    public void getAuth(@RequestBody String name, String password){
-        return userService.auth(name,password).;
+    public List<User> getAuth(@RequestHeader String name, @RequestHeader String password){
+        return userService.auth(name,password);
 
     }
 }
