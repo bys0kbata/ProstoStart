@@ -18,12 +18,12 @@ public class Start implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_start")
-    private int idStart;
+    private int id_Start;
     @Column(name = "name_start")
-    private String NameStart;
+    private String Name_Start;
     @Column(name = "about_start")
-    private String AboutStart;
+    private String About_Start;
     @Column(name = "creater_start")
-    private String CreaterStart;
+    private String Creater_Start;
 
 }

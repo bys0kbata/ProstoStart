@@ -1,33 +1,49 @@
-import { Axios } from "axios";
+import axios  from "axios";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./css/Auth.css"
 import img from "./img/ImgMainTwo.png";
-import imgopen from "./img/openglazz.png"
 
 
 export default function Auth(){
     const [login,setLogin] = useState()
     const [pass,setPass] = useState()
-    const [visPass,setVisPass] = useState(false);
+    const [vis,setVis] = useState(false);
+    const [Messread, setMR] = useState();
+    const data ={headers:{
+        user_login: login,
+        user_password: pass}
+    }
     const nav = useNavigate();
     const clickAuth = (e)=>{
         e.preventDefault();
-        //Axios.get("http://localhost:8080/hello")
-        // .then((response)=>{
-        //     console.log(response.data);
-        //  })
-        localStorage.setItem("Nick", login);
-        localStorage.setItem("isAuth", "true");
-        nav("/");
-        location.reload();
+        if(login&&pass){
+        axios.get("http://localhost:8082/user/auth",data)
+        .then((response)=>{
+            console.log( response.data);
+            if(response.data[0]){
+                localStorage.setItem("Nick", response.data[0].user_name);
+                localStorage.setItem("id_user", response.data[0].id_user);
+                localStorage.setItem("isAuth", "true");
+                setMR("Успешно вошли. Переадресация.")
+                setVis(true);
+                setTimeout(()=>{nav("/"); location.reload();}, 2500);
+            } else {
+                setMR("Неправильный логин или пароль")
+                setVis(true);
+            }
+        })
+        } else{
+            setMR("Заполните все поля.")
+            setVis(true);
+        }
+       
     }
-    // const inputPass = ()=>{
-    //     return(
-
-
-    //     )
-    // }
+    const Mess = ()=>{
+        return(
+            <h4>{Messread}</h4>
+        )
+    }
 
     return(
         <div className="AuthPage">
@@ -41,6 +57,7 @@ export default function Auth(){
                     <div  className="inputss">
                         <input type="text" placeholder="Введите пароль:" onChange={(e)=>{setPass(e.target.value)}} />
                     </div>
+                    {vis && <Mess />}
                     <p>Нет аккаунта?<button className="btnReg" onClick={()=>{nav("/reg");}}> Создай его!</button></p>
                     <button className="btnAuth" onClick={(e)=>{clickAuth(e)}}>Войти</button>
                 </form>

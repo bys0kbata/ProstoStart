@@ -18,9 +18,9 @@ public class Command implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
    @Column(name="id_command")
-    private int idComand;
+    private int id_Comand;
     @Column(name = "name_command")
-    private String nameComand;
+    private String name_Comand;
     @Column(name="about_command")
-    private String AboutComand;
+    private String About_Comand;
 }

@@ -19,13 +19,13 @@ public class BundleUC implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id_Bundle")
-    private int idBundle;
+    private int id_Bundle;
     @ManyToOne
     @JoinColumn(name="id_User")
-    private User idUser;
+    private User id_User;
     @ManyToOne
     @JoinColumn(name="id_Comand")
-    private Command idCommand;
+    private Command id_Command;
     @Column(name="Status_Bundle")
-    private String StatusBundle;
+    private String Status_Bundle;
 }
