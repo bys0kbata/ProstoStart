@@ -14,7 +14,9 @@ export default function AllStarts(){
         name: "Старт",
         creator: "Макс",
     }]
-    useEffect(()=>{setAS(data);},[]);
+    useEffect(()=>{
+        
+        setAS(data);},[]);
     const OneStart=(props)=>{
         return(
             <button className="btnAbout" onClick={()=>{nav("/profilestart");}}> <div className="OneStart">

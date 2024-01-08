@@ -5,6 +5,7 @@ import com.example.backend.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,5 +29,8 @@ public class UserService {
     public Optional<User> getUser(long id_user){
         Optional<User> user=userRepository.findById(id_user);
         return user;
+    }
+    public void deleteUser(long id_user){
+        userRepository.deleteAllById(Collections.singleton(id_user));
     }
 }

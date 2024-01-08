@@ -40,4 +40,9 @@ public class UserController {
         userService.save(user);
         return ResponseEntity.ok(HttpStatus.OK);
     }
+    @GetMapping("/delete")
+    public ResponseEntity<HttpStatus> deleteUser(@RequestHeader long id_user){
+        userService.deleteUser(id_user);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
 }

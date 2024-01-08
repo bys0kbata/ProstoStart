@@ -6,6 +6,7 @@ import ProfileUser from "../Pages/ProfileUser";
 import ProfileStarts from "../Pages/ProfileStarts";
 import AllCmd from "../Pages/AllCmd";
 import AddStart from "../Pages/AddStarts";
+import SettingsPages from "../Pages/SettingsPages";
 
 
 export default function RouterAuthYes(){
@@ -17,6 +18,7 @@ export default function RouterAuthYes(){
         <Route path="/allstarts" element={<AllStarts />} />
         <Route path="/allcmd" element={<AllCmd />} />
         <Route path="/addstarts" element={<AddStart />} />
+        <Route path="/settings" element={<SettingsPages />}></Route>
         <Route path="*" element={<NotFound />} />
     </Routes>
     )
