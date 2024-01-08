@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -24,6 +25,11 @@ public class StartController {
     @GetMapping("/all")
     public List<Start> getAllStart(){
         return startService.getall();
+    }
+    @GetMapping("/profile")
+    public Optional<Start> authUser(@RequestHeader long id_Start){
+        return startService.getStart(id_Start);
+
     }
 
 }

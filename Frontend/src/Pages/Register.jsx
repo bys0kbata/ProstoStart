@@ -26,7 +26,7 @@ export default function Register(){
 
     const onBut = async (e)=>{
         e.preventDefault();
-        if(Login && name && surname && patronic && About && messeger){
+        if(Login && name && surname && patronic && About && messeger && password){
             await axios.post("http://localhost:8082/user/reg", data)
             .then(function (response) {
                 if(response.data === "OK") {

@@ -1,25 +1,18 @@
 import { useEffect, useState } from "react";
+import axios from 'axios'
 import "./css/AllStarts.css"
 import { useNavigate } from "react-router-dom"
 
 export default function AllStarts(){
     const nav = useNavigate();
-    const [arrayStart, setAS] = useState();
-    const data =[{
-        id: 0,
-        name: "Старт",
-        creator: "Максим",
-    },{
-        id: 1,
-        name: "Старт",
-        creator: "Макс",
-    }]
+    const [arrayStart, setAS] = useState([]);
     useEffect(()=>{
-        
-        setAS(data);},[]);
+        axios.get("http://localhost:8082/start/all")
+        .then((response)=>{setAS(response.data);})
+       },[]);
     const OneStart=(props)=>{
         return(
-            <button className="btnAbout" onClick={()=>{nav("/profilestart");}}> <div className="OneStart">
+            <button className="btnAbout" onClick={()=>{nav("/profilestart/"+props.id);}}> <div className="OneStart">
                 <h3> Название: {props.name}</h3>
                 <h4> Руководитель: {props.creater}</h4>
             </div></button>
@@ -29,9 +22,10 @@ export default function AllStarts(){
         return(
             <div className="ArrayStart">
                 {
-                    data.map(function(one){
+                    arrayStart.map(function(one){
+                        console.log(one)
                         return(
-                        <OneStart  name={one.name} creater={one.creator} />)
+                        <OneStart id={one.id_Start} name={one.name_Start} creater={one.creater_Start}/>)
                     })
 
                 }

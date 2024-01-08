@@ -23,4 +23,10 @@ public class Command implements Serializable {
     private String name_Comand;
     @Column(name="about_command")
     private String About_Comand;
+    @Column(name="exp_command")
+    private String Exp_Comand;
+    @Column(name="contact_command")
+    private String Contact_Comand;
+    @Column(name="link_command")
+    private String Link_Comand;
 }
