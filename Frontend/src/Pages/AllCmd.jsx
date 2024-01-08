@@ -17,6 +17,8 @@ export default function AllCmd(){
                 <tr>
                     <td>ID команды</td>
                     <td>Название команды</td>
+                    <td>Контакт</td>
+                    <td>Портфолио</td>
                 </tr>
 
             </table>
