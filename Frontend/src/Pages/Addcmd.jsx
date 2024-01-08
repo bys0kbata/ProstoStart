@@ -13,7 +13,11 @@ export default function Addcmd(){
     const [Vis, setVis]= useState(false);
     const [Mess, setM]= useState();
     const data={
-
+        name_Comand: NameCMD,
+        about_Comand: aboutCMD,
+        exp_Comand: expCMD,
+        contact_Comand: contactCMD,
+        link_Comand: linkCMD
     }
     const onBut = async (e)=>{
         e.preventDefault();
@@ -27,7 +31,7 @@ export default function Addcmd(){
                     else{
                         setM("Неполадки с сервером, Попробуйте позже!")
                         setVis(true);
-                        setTimeout(()=>{nav("/")}, 2500);
+                        setTimeout(()=>{nav("/allcmd")}, 2500);
                     }
             })
         } else {
