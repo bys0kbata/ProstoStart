@@ -33,4 +33,7 @@ public class UserService {
     public void deleteUser(long id_user){
         userRepository.deleteAllById(Collections.singleton(id_user));
     }
+    public void changeUser(String user_name,String user_surname, String user_patronic, long id_user,String user_messager, String user_password,String user_about, String user_login  ){
+        userRepository.Change(user_patronic,user_surname,user_name,user_login, id_user, user_messager,user_password,user_about);
+    }
 }

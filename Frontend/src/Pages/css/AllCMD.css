@@ -1,0 +1,24 @@
+.Allcmd table{
+    margin:auto;
+    padding: 1vh;
+    border-color:#66FCF1;
+    border-style:solid;
+    border-radius: 20px;
+    background-color: #1F2833;
+}
+.Allcmd table tr {
+    margin:1vh;
+    
+}
+.Allcmd table tr th{
+    margin:1vh;
+    padding: 2vh;
+    color: #66FCF1;
+    border-bottom-color:#66FCF1;
+    border-bottom-style:solid;
+}
+.Allcmd table tr td{
+    margin:1vh;
+    padding: 0.5vh;
+    color: #58AFA9;
+}

@@ -23,7 +23,7 @@ export default function Register(){
         user_about: About,
         user_messeger: messeger
     }
-
+    
     const onBut = async (e)=>{
         e.preventDefault();
         if(Login && name && surname && patronic && About && messeger && password){

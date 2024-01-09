@@ -35,9 +35,9 @@ public class UserController {
         return userService.getUser(id_user);
 
     }
-    @PostMapping("/change")
-    public ResponseEntity changeUser(@RequestBody User user){
-        userService.save(user);
+    @GetMapping("/change")
+    public ResponseEntity changeUser( @RequestHeader String user_name, @RequestHeader String user_surname, @RequestHeader String user_patronic,@RequestHeader String user_login, @RequestHeader String user_password, @RequestHeader  String user_about,@RequestHeader String user_messager, @RequestParam long id_user){
+        userService.changeUser( user_name, user_surname, user_patronic,id_user,user_messager, user_password,user_about,user_login);
         return ResponseEntity.ok(HttpStatus.OK);
     }
     @GetMapping("/delete")

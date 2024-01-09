@@ -17,5 +17,7 @@ export default function ProfileCMD(){
             setAI(res.data);
         })
     },[])
-    return();
+    return(<div>
+        Профиль Команды
+    </div>);
 }

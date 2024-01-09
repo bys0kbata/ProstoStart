@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 
 export default function SettingsPages(){
+    const [name, setName] = useState();
+    const [surname, setSur] = useState();
+    const [patronic, setPatr] = useState();
     const [password, setPass] = useState();
     const [Login, setLogin] = useState();
     const [About, setAbout] = useState();
@@ -11,19 +14,24 @@ export default function SettingsPages(){
     const [Vis, setVis]= useState(false);
     const [Mess, setM]= useState();
     const nav = useNavigate();
-    const data ={
+    const data ={headers:{
+        user_name: name,
+        user_surname: surname,
+        user_patronic: patronic,
         user_login: Login,
         user_password: password,
         user_about: About,
-        user_messeger: messeger
-    }
+        user_messager: messeger
+    }}
     const data2 = {headers:{
         id_user: localStorage.getItem("id_user")
     }}
+    const datajs = JSON.stringify(data)
     const onBut = async (e)=>{
         e.preventDefault();
-        if(Login && password && About && messeger){
-            await axios.post("http://localhost:8082/user/reg", data)
+        console.log(datajs)
+        if(Login  && name && surname && patronic && password && About && messeger){
+            await axios.get("http://localhost:8082/user/change?id_user="+ parseInt(localStorage.getItem("id_user")), data)
             .then(function (response) {
                 if(response.data === "OK") {
                     setM("Успешно зарегистрировались. Переношу на главную страницу")
@@ -60,13 +68,16 @@ export default function SettingsPages(){
             <h1>Настройки Аккаунта</h1>
             <div>
                 <form>
-                <button onClick={(e)=>{onDel(e);}}>Удалить аккаунт</button>
+                <button className="btnSet" onClick={(e)=>{onDel(e);}}>Удалить аккаунт</button>
                 <h1>Изменение данных</h1>
+                <input type="text" placeholder="Введите Фамилию" onChange={(e)=>{setSur(e.target.value)}}/>
+                <input type="text" placeholder="Введите Имя" onChange={(e)=>{setName(e.target.value)}}/>
+                <input type="text" placeholder="Введите Отчество" onChange={(e)=>{setPatr(e.target.value)}}/>
                 <input type="text" placeholder="Введите свой логин" onChange={(e)=>{setLogin(e.target.value)}}/>
                 <input type="text" placeholder="Введите пароль" onChange={(e)=>{setPass(e.target.value)}}/>
                 <input type="text" placeholder="Расскажите немного о себе " onChange={(e)=>{setAbout(e.target.value)}}/>
                 <input type="text" placeholder="Контактные данные" onChange={(e)=>{setMess(e.target.value)}}/>
-                <button onClick={(e)=>{onBut(e);}}>Изменить данные</button>
+                <button className="btnSetd" onClick={(e)=>{onBut(e);}}>Изменить данные</button>
                 {Vis && <Reg />}
                 </form>
 

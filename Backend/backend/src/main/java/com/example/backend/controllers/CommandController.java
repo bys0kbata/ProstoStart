@@ -25,5 +25,5 @@ public class CommandController {
     public List<Command> getAllCMD(){
         return commandService.getall();
     }
-
+    
 }
