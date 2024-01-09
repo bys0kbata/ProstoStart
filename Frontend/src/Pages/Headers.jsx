@@ -47,7 +47,6 @@ export default function Headers(){
         return(
             <div id="myDropdown" className="dropdown-content">
             <div className="ColumnMenu"> <a className="listchild" href="/profileuser"> Мой профили </a>
-            <a className="listchild" href="/">Главная страница</a>
             <a className="listchild" href="/allstarts">Все старты</a>
             <a className="listchild" href="/allcmd">Все команды</a>
             <a className="listchild" href="/settings">Настройки профиля</a>

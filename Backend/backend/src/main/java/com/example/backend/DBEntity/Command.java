@@ -27,6 +27,9 @@ public class Command implements Serializable {
     private String Exp_Comand;
     @Column(name="contact_command")
     private String Contact_Comand;
+    @ManyToOne
+    @JoinColumn(name="id_creater")
+    private User id_creater;
     @Column(name="link_command")
     private String Link_Comand;
 }

@@ -29,12 +29,10 @@ export default function AllCmd(){
                             <td>{one.name_Comand}</td>
                             <td>{one.contact_Comand}</td>
                             <td>{one.link_Comand}</td>
-                            <button onClick={()=>{nav("/profilecmd/"+one.id_Comand)}}>Посмотреть</button>
+                            <button className="btnAbout" onClick={()=>{nav("/profilecmd/"+one.id_Comand)}}>Посмотреть</button>
                         </tr>
                     )
                  })
-
-
                 }
 
             </table>

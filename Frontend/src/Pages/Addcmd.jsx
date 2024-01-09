@@ -17,6 +17,7 @@ export default function Addcmd(){
         about_Comand: aboutCMD,
         exp_Comand: expCMD,
         contact_Comand: contactCMD,
+        id_creater: localStorage.getItem("id_user"),
         link_Comand: linkCMD
     }
     const onBut = async (e)=>{
