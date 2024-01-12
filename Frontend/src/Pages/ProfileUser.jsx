@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 
 export default function ProfileUser(){
         const [response, setRes] = useState([]);
+        const [Cresponse, setCS] = useState([]);
         const nav = useNavigate();
         const data = {headers: {id_user: localStorage.getItem("id_user")}}
         const [arrayStart, setAS] = useState([]);
@@ -14,6 +15,8 @@ export default function ProfileUser(){
             .then((response)=>{setRes(response.data);});
              axios.get("http://localhost:8082/start/all")
             .then((response)=>{setAS(response.data);});
+            axios.get("http://localhost:8082/cmd/all")
+            .then((response)=>{setCS(response.data);})
         },[])
         const ProfileInfo =()=>{ 
             return(
@@ -26,7 +29,9 @@ export default function ProfileUser(){
             )
 
         }
+        console.log(Cresponse)
         const OneStart=(props)=>{
+
             return(
                 <button className="btnAbout" onClick={()=>{nav("/profilestart/"+props.id);}}> <div className="OneStart">
                     <h3> Название: {props.name}</h3>
@@ -34,12 +39,25 @@ export default function ProfileUser(){
                 </div></button>
             )
         }
+        const CMD =()=>{
+            return(<div className="ArrayStart">{
+            Cresponse.map((e) =>{
+            if(e.id_creater?.id_user ==localStorage.getItem("id_user") )
+            return(
+                <div>
+                    <button className="btnAbout" onClick={()=>{nav("/profilecmd/"+e.id_Comand);}}> <div className="OneStart">
+                <h3> Название: {e.name_Comand}</h3>
+                <h4> Руководитель: {e.id_creater?.user_name}</h4>
+            </div></button>
+                </div>
+            )})}
+            </div>)
+        }
         const ArrayStart = ()=>{
             return(
                 <div className="ArrayStart">
                     {
                         arrayStart.map(function(one){
-                            console.log(one)
                             return(
                             <OneStart id={one.id_Start} name={one.name_Start} creater={one.creater_Start}/>)
                         })
@@ -54,6 +72,8 @@ export default function ProfileUser(){
         <>
             <h1>Ваш профиль</h1>
             <ProfileInfo />
+            <h1>Ваша Команда</h1>
+            <CMD />
             <h1>Ваши Старты</h1>
             <ArrayStart />
         </>

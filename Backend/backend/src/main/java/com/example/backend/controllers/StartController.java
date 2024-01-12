@@ -29,7 +29,14 @@ public class StartController {
     @GetMapping("/profile")
     public Optional<Start> authUser(@RequestHeader long id_Start){
         return startService.getStart(id_Start);
-
+    }
+    @GetMapping("/delete")
+    public ResponseEntity<HttpStatus> deleteStart(@RequestHeader long id_Start){
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+    @GetMapping("/change")
+    public ResponseEntity<HttpStatus> changeStart(@RequestHeader long id_Start){
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
 }

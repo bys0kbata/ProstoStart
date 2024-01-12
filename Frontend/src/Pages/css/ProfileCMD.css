@@ -1,0 +1,37 @@
+.ProfileCMD table{
+    margin:auto;
+    padding: 1vh;
+    border-color:#66FCF1;
+    border-style:solid;
+    border-radius: 20px;
+    background-color: #1F2833;
+}
+.ProfileCMD table tr {
+    margin:1vh;
+    
+}
+.ProfileCMD table tr th{
+    margin:1vh;
+    padding: 2vh;
+    color: #66FCF1;
+    border-bottom-color:#66FCF1;
+    border-bottom-style:solid;
+}
+.ProfileCMD table tr td{
+    margin:1vh;
+    padding: 0.5vh;
+    color: #58AFA9;
+}
+#ButDe{
+    margin: auto;
+    width: max-content;
+    margin-bottom: 2vh;
+}
+.ProfileCMD{
+    display: flex;
+    flex-direction: column;
+
+}
+.ProfileCMD div{
+    margin-bottom: 2vh;
+}

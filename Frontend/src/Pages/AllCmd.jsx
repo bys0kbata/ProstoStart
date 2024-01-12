@@ -7,14 +7,24 @@ import "./css/AllCMD.css"
 export default function AllCmd(){
     const nav = useNavigate();
     const [arrayStart, setAS] = useState([]);
+    const [Vis,setVis] = useState(0);
     useEffect(()=>{
         axios.get("http://localhost:8082/cmd/all")
         .then((response)=>{setAS(response.data);})
        },[]);
+       const GoAddcmd =()=>{
+        arrayStart.map((One)=>{
+        if(One.id_creater.id_user==localStorage.getItem("id_user"))
+        setVis(Vis+1);
+       })
+       if(Vis==0) return(
+        <button className="btnAbout" onClick={()=>{nav("/addcmd");}}>+</button>
+       )
+       }
     return(
         <div className="Allcmd">
             <h1>Все команды</h1>
-            <button className="btnAbout" onClick={()=>{nav("/addcmd");}}>+</button>
+            <GoAddcmd />
             <table>
                 <tr>
                     <th>Название команды</th>

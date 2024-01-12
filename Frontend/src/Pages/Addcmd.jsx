@@ -5,6 +5,7 @@ import "./css/AddCMD.css"
 
 export default function Addcmd(){
     const nav = useNavigate();
+    const [User, setUser]= useState([]);    
     const [NameCMD,  setName] = useState();
     const [aboutCMD, setAbout] = useState();
     const [contactCMD, setContact] = useState();
@@ -12,15 +13,27 @@ export default function Addcmd(){
     const [linkCMD, setLink] = useState();
     const [Vis, setVis]= useState(false);
     const [Mess, setM]= useState();
+    const data2 = {headers: {id_user: localStorage.getItem("id_user")}}
     const data={
         name_Comand: NameCMD,
         about_Comand: aboutCMD,
         exp_Comand: expCMD,
         contact_Comand: contactCMD,
-        id_creater: localStorage.getItem("id_user"),
+        id_creater: {
+            id_user: User.id_user,
+            user_name: User.user_name,
+            user_surname: User.user_surname,
+            user_patronic: User.user_patronic,
+            user_login: User.user_login,
+            user_password: User.user_password,
+            user_about: User.user_about,
+            user_messeger: User.user_messeger
+            },
         link_Comand: linkCMD
     }
     const onBut = async (e)=>{
+        axios.get("http://localhost:8082/user/profile",data2)
+        .then((response)=>{setUser(response.data);});
         e.preventDefault();
         if(NameCMD && aboutCMD && contactCMD && expCMD && linkCMD){
             await axios.post("http://localhost:8082/cmd/create", data)

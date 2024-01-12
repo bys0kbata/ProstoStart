@@ -28,7 +28,5 @@ public class BundleUC implements Serializable {
     private String role_Part;
     @ManyToOne
     @JoinColumn(name="id_Comand")
-    private Command id_Command;
-    @Column(name="Status_Bundle")
-    private String Status_Bundle;
+    private Command id_CommandCR;
 }

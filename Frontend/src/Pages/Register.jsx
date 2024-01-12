@@ -61,7 +61,7 @@ export default function Register(){
                 <input type="text" placeholder="Введите пароль" onChange={(e)=>{setPass(e.target.value)}}/>
                 <input type="text" placeholder="Расскажите немного о себе " onChange={(e)=>{setAbout(e.target.value)}}/>
                 <input type="text" placeholder="Контактные данные" onChange={(e)=>{setMess(e.target.value)}}/>
-                <button onClick={(e)=>{onBut(e);}}>Зарегистрироваться</button>
+                <button id="btnCrAdd"  onClick={(e)=>{onBut(e);}}>Зарегистрироваться</button>
             </form>
             {Vis && <Reg />}
         </div>

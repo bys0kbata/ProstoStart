@@ -23,7 +23,5 @@ public class Start implements Serializable {
     private String Name_Start;
     @Column(name = "about_start")
     private String About_Start;
-    @Column(name = "creater_start")
-    private String Creater_Start;
 
 }
