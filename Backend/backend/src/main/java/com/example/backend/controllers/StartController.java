@@ -36,9 +36,8 @@ public class StartController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
     @GetMapping("/change")
-    public ResponseEntity<HttpStatus> changeStart(@RequestHeader long id_Start){
-
-
+    public ResponseEntity<HttpStatus> changeStart(@RequestHeader String Name_Start,  @RequestHeader String About_Start, @RequestParam long id_Start){
+        startService.changeStart(Name_Start, About_Start, id_Start);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 

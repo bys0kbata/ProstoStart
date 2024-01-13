@@ -28,4 +28,7 @@ public class StartService {
     public void deleteStart(long id_Start){
         startRepository.deleteAllById(Collections.singleton(id_Start));
     }
+    public void changeStart(String name_start,String about_start, long id_start ){
+        startRepository.Change(name_start,about_start, id_start);
+    }
 }
