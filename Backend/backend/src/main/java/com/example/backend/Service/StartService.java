@@ -6,6 +6,7 @@ import com.example.backend.Repository.StartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,5 +24,8 @@ public class StartService {
     public Optional<Start> getStart(long id_Start){
         Optional<Start> start=startRepository.findById(id_Start);
         return start;
+    }
+    public void deleteStart(long id_Start){
+        startRepository.deleteAllById(Collections.singleton(id_Start));
     }
 }

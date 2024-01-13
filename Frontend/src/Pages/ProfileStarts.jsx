@@ -13,6 +13,10 @@ export default function ProfileStarts(){
     const data = {headers: {
         id_Start: href
     }}
+    const data2 ={
+        id_Start: href,
+        
+    }
     const nav = useNavigate();
     console.log(href)
     useEffect(()=>{
@@ -31,7 +35,7 @@ export default function ProfileStarts(){
         )
     }
     const onBut = ()=>{
-        if(Name && Surname && Role){
+        if(NameStart && AboutStart){
             axios.post("http://localhost:8082/bundleuc/create", data2)
             .then(function (response) {
                 if(response.data === "OK") {
@@ -48,6 +52,18 @@ export default function ProfileStarts(){
             setM("Заполните все поля!")
             setVis(true);
         }
+    }
+    const TableRes = ()=>{
+        return(
+            <table>
+                <tr>
+                    <th>Название команды</th>
+                    <th>Ссылка на портфолио</th>
+                    <th>Контакты</th>
+                </tr>
+
+            </table>
+        )
     }
 
     if(ArrInfo) return(
@@ -68,6 +84,10 @@ export default function ProfileStarts(){
                 <button  id="btnCrAdd" onClick={(e)=>{e.preventDefault();}}>Изменить</button>
                 </form>
             </div>
+            <div className="OnlyCMD">
+                <button  id="btnCrAdd" onClick={(e)=>{e.preventDefault();}}>Откликнуться</button> 
+            </div>
+            <TableRes />
         </div>
     )
     else {nav("/")}
