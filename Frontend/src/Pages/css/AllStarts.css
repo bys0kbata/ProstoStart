@@ -5,7 +5,7 @@
 .ArrayStart{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;;
+    flex-wrap: wrap;
 }
 .OneStart{
     display: flex;

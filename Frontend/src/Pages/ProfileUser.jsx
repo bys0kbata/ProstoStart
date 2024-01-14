@@ -13,8 +13,9 @@ export default function ProfileUser(){
         useEffect( ()=>{
              axios.get("http://localhost:8082/user/profile",data)
             .then((response)=>{setRes(response.data);});
-             axios.get("http://localhost:8082/start/all")
-            .then((response)=>{setAS(response.data);});
+             axios.get("http://localhost:8082/start/getuserstart", data)
+            .then((response)=>{
+                console.log(response);setAS(response.data);});
             axios.get("http://localhost:8082/cmd/all")
             .then((response)=>{setCS(response.data);})
         },[])
@@ -59,7 +60,7 @@ export default function ProfileUser(){
                     {
                         arrayStart.map(function(one){
                             return(
-                            <OneStart id={one.id_Start} name={one.name_Start} creater={one.creater_Start}/>)
+                            <OneStart id={one.id_Start} name={one.name_Start} creater={one.id_CreatSt?.user_name}/>)
                         })
     
                     }

@@ -40,5 +40,9 @@ public class StartController {
         startService.changeStart(Name_Start, About_Start, id_Start);
         return ResponseEntity.ok(HttpStatus.OK);
     }
+    @GetMapping("/getuserstart")
+    public List<Start> getUserStart(@RequestHeader long id_user){
+        return startService.findByidStart(id_user);
+    }
 
 }

@@ -31,4 +31,7 @@ public class StartService {
     public void changeStart(String name_start,String about_start, long id_start ){
         startRepository.Change(name_start,about_start, id_start);
     }
+    public List<Start> findByidStart(long id_user){
+        return  startRepository.findByIDStart(id_user);
+    }
 }

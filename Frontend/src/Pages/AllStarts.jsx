@@ -25,7 +25,7 @@ export default function AllStarts(){
                     arrayStart.map(function(one){
                         console.log(one)
                         return(
-                        <OneStart id={one.id_Start} name={one.name_Start} creater={one.creater_Start}/>)
+                        <OneStart id={one.id_Start} name={one.name_Start} creater={one.id_CreatSt?.user_name}/>)
                     })
 
                 }
