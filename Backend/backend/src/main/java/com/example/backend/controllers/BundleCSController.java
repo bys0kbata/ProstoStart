@@ -32,4 +32,14 @@ public class BundleCSController {
         bundleCSService.change(status_bundle, id_bundlecs);
         return ResponseEntity.ok(HttpStatus.OK);
     }
+    @GetMapping("/listbundle")
+    public List<BundleCS> getidStart(@RequestHeader long id_start){
+        return  bundleCSService.getIDStart(id_start);
+    }
+    @GetMapping("/delete")
+    public ResponseEntity<HttpStatus>  deleteBundle(@RequestHeader long id_bundle){
+        bundleCSService.delete(id_bundle);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
 }
+

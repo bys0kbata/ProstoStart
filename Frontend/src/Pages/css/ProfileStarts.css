@@ -2,3 +2,51 @@
     color:#66FCF1;
     text-align: center;
 }
+.ProfileStarts table{
+    margin:auto;
+    padding: 1vh;
+    border-color:#66FCF1;
+    border-style:solid;
+    border-radius: 20px;
+    background-color: #1F2833;
+}
+.ProfileStarts table tr {
+    margin:1vh;
+    
+}
+.ProfileStarts table tr th{
+    margin:1vh;
+    padding: 2vh;
+    color: #66FCF1;
+    border-bottom-color:#66FCF1;
+    border-bottom-style:solid;
+}
+.ProfileStarts table tr td{
+    margin:1vh;
+    padding: 0.5vh;
+    color: #58AFA9;
+}
+.btnSe{
+    background-color:#1F2833 ;
+    border-color:  #bd3e53;
+    border-radius: 40px;
+    border-style: solid;
+    border-width: 2px;
+    color: white;
+    padding-right: 3vh;
+    padding-left: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    font-size: 2vh;
+}
+.btnSe:hover{
+    background-color:#bd3e53 ;
+    border-color:  #bd3e53;
+    color:white;
+}
+.ProfileStarts div{
+    margin-bottom: 1.5vh;
+}
+.ProfileStarts button{
+    margin: 1.25vh;
+}

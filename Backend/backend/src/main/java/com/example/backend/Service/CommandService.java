@@ -1,7 +1,6 @@
 package com.example.backend.Service;
 
 import com.example.backend.DBEntity.Command;
-import com.example.backend.DBEntity.User;
 import com.example.backend.Repository.CommandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +26,10 @@ public class CommandService {
     }
     public void changeComm(String name_Comand, String About_Comand,String Exp_Comand,String Contact_Comand,String Link_Comand,long id_Comand){
         commandRepository.Change(name_Comand, About_Comand, Exp_Comand, Contact_Comand, Link_Comand, id_Comand);
+    }
+    public List<Command> getCommID(long id_user){
+        List<Command> comm =  commandRepository.findByIDUser(id_user);
+        return comm;
     }
     public void deleteComm(long id_command){
         commandRepository.deleteAllById(Collections.singleton(id_command));

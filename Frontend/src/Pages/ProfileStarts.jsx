@@ -10,6 +10,8 @@ export default function ProfileStarts(){
     const [Mess, setM]= useState();
     const [NameStart, setNS]= useState();
     const [AboutStart, setAS]= useState();
+    const [InfoComm, setIC]= useState([]);
+    const [ArrBundle, setAB] = useState([]);
     const data = {headers: {
         id_Start: href
     }}
@@ -22,50 +24,61 @@ export default function ProfileStarts(){
         id_Start: ArrInfo.id_Start
     }}
     const data4 = {
-    
             id_Start: {
-                id_Start: 12,
+                id_Start: ArrInfo.id_Start,
                 id_CreatSt: {
-                    id_user: 302,
-                    user_name: "Denis",
-                    user_surname: "Pravdin",
-                    user_patronic: "Sergeevich",
-                    user_login: "1234",
-                    user_password: "1234",
-                    user_about: "1234",
-                    user_messeger: "1234"
+                    id_user: ArrInfo.id_CreatSt?.id_user,
+                    user_name: ArrInfo.id_CreatSt?.user_name,
+                    user_surname: ArrInfo.id_CreatSt?.user_surname,
+                    user_patronic: ArrInfo.id_CreatSt?.user_patronic,
+                    user_login: ArrInfo.id_CreatSt?.user_login,
+                    user_password:ArrInfo.id_CreatSt?.user_password,
+                    user_about: ArrInfo.id_CreatSt?.user_about,
+                    user_messeger: ArrInfo.id_CreatSt?.user_messeger
                 },
-                about_Start: "sdfsdf",
-                name_Start: "sdfsd"
+                about_Start: ArrInfo.about_Start,
+                name_Start: ArrInfo.name_Start
             },
             id_Command: {
-                id_Comand: 203,
-                name_Comand: "StarLine",
+                id_Comand: InfoComm[0]?.id_Comand,
+                name_Comand: InfoComm[0]?.name_Comand,
                 id_creater: {
-                    id_user: 302,
-                    user_name: "Denis",
-                    user_surname: "Pravdin",
-                    user_patronic: "Sergeevich",
-                    user_login: "1234",
-                    user_password: "1234",
-                    user_about: "1234",
-                    user_messeger: "1234"
+                    id_user: InfoComm[0]?.id_creater?.id_user,
+                    user_name: InfoComm[0]?.id_creater?.user_name,
+                    user_surname: InfoComm[0]?.id_creater?.user_surname,
+                    user_patronic:InfoComm[0]?.id_creater?.user_patronic,
+                    user_login: InfoComm[0]?.id_creater?.user_login,
+                    user_password: InfoComm[0]?.id_creater?.user_password,
+                    user_about: InfoComm[0]?.id_creater?.user_about,
+                    user_messeger: InfoComm[0]?.id_creater?.user_messeger
                 },
-                link_Comand: "//dsfg/fdgdfg",
-                about_Comand: "Супер Пупер команда",
-                exp_Comand: "Нету",
-                contact_Comand: "89963420562"
+                link_Comand: InfoComm[0]?.link_Comand,
+                about_Comand: InfoComm[0]?.about_Comand,
+                exp_Comand: InfoComm[0]?.exp_Comand,
+                contact_Comand: InfoComm[0]?.contact_Comand
             },
             status_Bundle: "В Ожиданий"
     
     }
+    const data5 ={ 
+        headers:{
+            id_CMD:  localStorage.getItem("id_user")
+        }
+    }
     const nav = useNavigate();
-    console.log(href)
     useEffect(()=>{
         axios.get("http://localhost:8082/start/profile",data)
         .then((res)=>{
-            console.log(res);
             setAI(res.data);
+        })
+        axios.get("http://localhost:8082/cmd/commuser",data5)
+        .then((res)=>{
+            setIC(res.data);
+        })
+        axios.get("http://localhost:8082/bundlecs/listbundle",data)
+        .then((res)=>{
+            console.log(res.data)
+            setAB(res.data);
         })
 
     },[])
@@ -101,24 +114,41 @@ export default function ProfileStarts(){
         }
         location.reload();
     }
+    const onCHbundle = (id,status)=>{
+        console.log(id)
+        console.log(status)
+        axios.get("http://localhost:8082/bundlecs/change?id_bundlecs="+id, {headers:{ status_bundle:status}})
+        .then(function (response) {
+            if(response.data === "OK") {
+                location.reload();
+            }
+        })
+        location.reload();
+    }
     const onBut = ()=>{
-        if(NameStart && AboutStart){
             axios.post("http://localhost:8082/bundlecs/create", data4)
             .then(function (response) {
                 if(response.data === "OK") {
-                    setM("Успешно добавили.")
-                    setVis(true);
-                    setTimeout(()=>{location.reload();}, 2500);} 
-                    else{
-                        setM("Неполадки с сервером, Попробуйте позже!")
-                        setVis(true);
-                        setTimeout(()=>{nav("/")}, 2500);
-                    }
+                    location.reload();
+                }
             })
-        } else {
-            setM("Заполните все поля!")
-            setVis(true);
-        }
+    }
+    const chekbundle=()=>{
+        var lol=0
+        ArrBundle.map((One)=>{
+            if(localStorage.getItem("id_user") == One.id_Command.id_creater?.id_user) 
+            {lol=lol+1}
+        })
+        if (lol==0) return true
+        else false
+    }
+    const onDelBundle=(id)=>{
+        axios.get("http://localhost:8082/bundlecs/delete", {headers:{ id_bundle:id}})
+        .then(function (response) {
+            if(response.data === "OK") {
+                location.reload();
+            }
+        })
     }
     const TableRes = ()=>{
         return(
@@ -127,8 +157,24 @@ export default function ProfileStarts(){
                     <th>Название команды</th>
                     <th>Ссылка на портфолио</th>
                     <th>Контакты</th>
+                    <th>Cтатус</th>
                 </tr>
-
+                {
+                    ArrBundle.map((One)=>{
+                        return(
+                        <tr>
+                            <td>{One.id_Command?.name_Comand}</td>
+                            <td>{One.id_Command?.link_Comand}</td>
+                            <td>{One.id_Command?.contact_Comand}</td>
+                            <td>{One.status_Bundle == "approved"? "Одобрено": One.status_Bundle}</td>
+                            <td style={(ArrInfo.id_CreatSt?.id_user != localStorage.getItem("id_user"))? {display:"none"}:{} }> 
+                            <button id="btnCrAdd" onClick={()=>{nav("/profilecmd/"+One.id_Command?.id_Comand); location.reload();}}>Check</button> 
+                            <button id="btnCrAdd" onClick={()=>{onCHbundle(One.id_Bundle, "approved")}}>+</button> 
+                            <button className="btnSe" onClick={()=>{onDelBundle(One.id_Bundle)}}>-</button></td>
+                            <td style={(One.id_Command.id_creater.id_user != localStorage.getItem("id_user"))? {display:"none"}:{} }><button className="btnSe" onClick={()=>{onDelBundle(One.id_Bundle)}}>-</button></td>
+                        </tr>)
+                    })
+                }
             </table>
         )
     }
@@ -138,7 +184,8 @@ export default function ProfileStarts(){
             <h1>Профиль Старта</h1>
             <div className="ProfileInfo">
             <h1>{ArrInfo.name_Start}</h1>
-            <a>Создатель:{ArrInfo.id_CreatSt?.user_name}<br /></a>
+            <a>Создатель :{ArrInfo.id_CreatSt?.user_name}<br /></a>
+            <a>Контакт :{ArrInfo.id_CreatSt?.user_messeger}<br /></a>
             <a>О cтарте: {ArrInfo.about_Start} <br /> </a>
         </div>
             <div className="OnlyCreater" style={(ArrInfo.id_CreatSt?.id_user != localStorage.getItem("id_user"))? {display:"none"}:{} }>
@@ -151,7 +198,7 @@ export default function ProfileStarts(){
                 <button  id="btnCrAdd" onClick={(e)=>{e.preventDefault();onCH();}}>Изменить</button>
                 </form>
             </div>
-            <div className="OnlyCMD">
+            <div className="OnlyCMD" style={(ArrInfo.id_CreatSt?.id_user != localStorage.getItem("id_user")) &&InfoComm[0] && chekbundle()?{}:{display:"none"} }>
                 <button  id="btnCrAdd" onClick={(e)=>{e.preventDefault();onBut();}}>Откликнуться</button> 
             </div>
             <TableRes />

@@ -1,7 +1,6 @@
 package com.example.backend.controllers;
 
 import com.example.backend.DBEntity.Command;
-import com.example.backend.DBEntity.User;
 import com.example.backend.Repository.UserRepository;
 import com.example.backend.Service.CommandService;
 import com.example.backend.Service.UserService;
@@ -10,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.Console;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,4 +42,6 @@ public class CommandController {
         commandService.changeComm(name_Comand, About_Comand, Exp_Comand, Contact_Comand, Link_Comand, id_Comand);
         return ResponseEntity.ok(HttpStatus.OK);
     }
+    @GetMapping("/commuser")
+    public List<Command> getCMD(@RequestHeader long id_CMD) {return commandService.getCommID(id_CMD);}
 }
