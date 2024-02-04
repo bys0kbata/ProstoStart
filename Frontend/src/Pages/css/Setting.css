@@ -28,6 +28,7 @@
     padding-top: 1vh;
     padding-bottom: 1vh;
     font-size: 2vh;
+    margin-bottom: 1.25vh;
 }
 .btnSetd:hover{
     background-color:#66FCF1 ;

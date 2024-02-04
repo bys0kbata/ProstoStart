@@ -78,6 +78,7 @@ export default function SettingsPages(){
                 <input type="text" placeholder="Расскажите немного о себе " onChange={(e)=>{setAbout(e.target.value)}}/>
                 <input type="text" placeholder="Контактные данные" onChange={(e)=>{setMess(e.target.value)}}/>
                 <button className="btnSetd" onClick={(e)=>{onBut(e);}}>Изменить данные</button>
+                <button className="btnSetd" onClick={(e)=>{onBut(e);}}>Добавить фото</button>
                 {Vis && <Reg />}
                 </form>
 
